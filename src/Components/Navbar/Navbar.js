@@ -31,7 +31,9 @@ function Navbar() {
             <li className="nav-item active mx-2">              
             <a className="nav-link text-white" href="#about">About</a>
             </li>
-            <button  type="button" className="btn btn-danger px-3 text-white">Resume</button>
+         
+               <a className="nav-link text-white btn btn-danger px-3 text-white" target="_blank" href="https://drive.google.com/file/d/1GzHjeyR_Ra1e7NsyKxCs291OCEUfmTjK/view?usp=sharing">Resume
+               </a>  
 
           </ul>
         </div>

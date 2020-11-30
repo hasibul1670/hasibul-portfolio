@@ -48,7 +48,7 @@ function About() {
  <p></p>
 
    <div className="text-center">
-      <a href=" " class="btn1 btn effect  ">Download Resume</a> 
+      <a href="https://drive.google.com/file/d/1GzHjeyR_Ra1e7NsyKxCs291OCEUfmTjK/view?usp=sharing" class="btn1 btn effect" target="_blank" >Download Resume</a> 
       <a href="mailto:hasibulislam1670@gmail.com" target="_top" class="btn2 btn effect">Send Message</a>
       </div>
 <p></p>
