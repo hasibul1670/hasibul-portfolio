@@ -61,7 +61,7 @@ function Typing() {
       };
     return (
         <div>
-         <h3>I am &nbsp;   
+         <h3>I Am &nbsp;   
   <span
      class="txt-rotate"
      data-period="2000"

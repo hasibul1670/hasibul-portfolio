@@ -18,7 +18,7 @@ function About() {
 <img className="cover img-fluid"  src={cover} alt="#"/>
 </div>
 
-<div class="social d-flex justify-content-center"> 
+<div class="social"> 
 
 <a href="https://www.facebook.com/hasibcs"target="_blank"><FontAwesomeIcon className="fb about-img" icon={faFacebook} /></a>
          

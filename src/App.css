@@ -50,8 +50,12 @@ width: 8rem!important;
 }
 .about-img{
 color: white;
-font-size: 3rem;
+font-size: 1.5rem;
 margin-right: 1.6rem;
+
+}
+.social{
+  margin-left: 2rem;
 
 }
 
