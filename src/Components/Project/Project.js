@@ -31,7 +31,28 @@ function Project() {
 
     </div>
   </div>
+  
   </div>
+  
+
+  <div className='col-9 col-sm-9 col-md-6 col-lg-6 col-xl-4'>
+  <div class="card">
+    <img  className="      img-fluid card-img-top" src={app}   alt="..."/>
+    <div class="card-body">
+    <h5 class="card-title text-center text text-white">Apartment Hunt Website</h5>
+  
+      <p class="card-text text-center text-white ">A fullstack Apartment agency website using React,Redux,Firebase Authentication,Bootstrap,MongoDB and NodeJs</p>
+
+      <div className="text-center">
+      <a href="https://team1-apartment-hunt.netlify.app/" class="btn1 btn  ">Website</a> 
+      <a href="https://github.com/hasibul1670/Apartment-Hunt" class="btn2 btn  ">Github</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
 
   <div className='col-9 col-sm-9 col-md-6 col-lg-6 col-xl-4'>
   <div class="card">
@@ -68,23 +89,7 @@ function Project() {
 
 
 
-  <div className='col-9 col-sm-9 col-md-6 col-lg-6 col-xl-4'>
-  <div class="card">
-    <img  className="      img-fluid card-img-top" src={app}   alt="..."/>
-    <div class="card-body">
-    <h5 class="card-title text-center text text-white">Apartment Hunt Website</h5>
-    <p className='card-text text-center text-white'>This is a Team Project</p>
-      <p class="card-text text-center text-white ">A fullstack Apartment agency website using React,Redux,Firebase Authentication,Bootstrap,MongoDB and NodeJs</p>
-
-      <div className="text-center">
-      <a href="https://team1-apartment-hunt.netlify.app/" class="btn1 btn  ">Website</a> 
-      <a href="https://github.com/hasibul1670/Apartment-Hunt" class="btn2 btn  ">Github</a>
-      </div>
-
-    </div>
-  </div>
-</div>
-
+ 
 </div>
         </div>
     )
