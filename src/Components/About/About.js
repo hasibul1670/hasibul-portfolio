@@ -53,7 +53,7 @@ function About() {
       </div>
 <p></p>
       <div className="margin text-center text-white">
-      <small>Hasibul Islam Initiative. © 2020 All Rights Reserved</small>
+      <small>Hasibul Islam Initiative. © 2021 All Rights Reserved</small>
       </div>
 
    </div>
