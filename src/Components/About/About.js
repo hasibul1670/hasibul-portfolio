@@ -20,7 +20,7 @@ function About() {
 
 <div class="social"> 
 
-<a href="https://www.facebook.com/hasibcs"target="_blank"><FontAwesomeIcon className="fb about-img" icon={faFacebook} /></a>
+<a href="https://www.facebook.com/hasibulcse"target="_blank"><FontAwesomeIcon className="fb about-img" icon={faFacebook} /></a>
          
                <a href="https://www.linkedin.com/in/hasibul-islam-6060541b3" target="_blank"><FontAwesomeIcon className="about-img linkedin" icon={faLinkedinIn} />
                </a>
