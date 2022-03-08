@@ -1,7 +1,8 @@
 import React from 'react';
 import Login from '../Login/Login';
 import ReactDOM from 'react-dom';
-import Countdown from 'react-countdown';
+import Countdown1 from 'react-countdown';
+import CountDown from '../../CountDown/CountDown';
 
 const Admin = () => {
 
@@ -19,10 +20,14 @@ const Admin = () => {
       };
     return (
         <div>
+            <img src="" alt="" srcset="" />
+
            <h2 className="text-danger text-center font-weight-bold ">
+<CountDown></CountDown>
+
            
             </h2>
-<Countdown
+<Countdown1
     date={Date.now() + 5000}
     renderer={renderer}
   />
