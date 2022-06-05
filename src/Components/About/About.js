@@ -44,6 +44,7 @@ function About() {
                             I am Front-end Developer from Dhaka,Bangladesh. I count myself as a hardworking person.<br />
                             For fetching a challenging career in competitive world ,<br /> I have enthusiasm, honesty, hard work and passion
                             which will help me to reach my goal.And I will be more effective day by day in this sector.
+                            Let's to Go
                         </h6>
                         <p></p>
 
