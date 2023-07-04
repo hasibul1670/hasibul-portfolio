@@ -12,7 +12,6 @@ import {
 import './App.css';
 import Home from "./Components/Home/Home";
 import Project from "./Components/Project/Project";
-import Admin from "./Components/Admin/Admin";
 import NoMatch from "./Components/NoMatch.js";
 
 
@@ -24,7 +23,6 @@ function App() {
       <Switch>
       <Route exact path="/"><Home /></Route>
       <Route path="/project"><Project></Project></Route>
-      <Route path="/admin"><Admin></Admin></Route>
       <Route path="*">
             <NoMatch/>
           </Route>

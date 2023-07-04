@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "homepage":"https://hasibul360.com/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
@@ -18,7 +17,7 @@
     "react-countdown": "^2.3.2",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.3.0",
-    "react-scripts": "4.0.1",
+    "react-scripts": "^5.0.1",
     "react-scroll": "^1.8.1",
     "web-vitals": "^0.2.4"
   },
@@ -45,5 +44,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

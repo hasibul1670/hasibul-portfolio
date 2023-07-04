@@ -1,5 +1,5 @@
 import React from 'react';
-import cover from "../../images/cover.png";
+import cover from "../../images/Hasibul.png";
 import Typing from '../Typing/Typing';
 
 function Hader() {
