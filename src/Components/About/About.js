@@ -20,24 +20,37 @@ function About() {
         </div>
 
         <div class="social">
-          <a href="https://www.facebook.com/hasibulcse" target="_blank">
+          <a
+            href="https://www.facebook.com/hasibulcse"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon className="fb about-img" icon={faFacebook} />
           </a>
 
           <a
             href="https://www.linkedin.com/in/hasibul-islam-6060541b3"
             target="_blank"
+            rel="noreferrer"
           >
             <FontAwesomeIcon
               className="about-img linkedin"
               icon={faLinkedinIn}
             />
           </a>
-          <a href="https://github.com/hasibul1670" target="_blank">
+          <a
+            href="https://github.com/hasibul1670"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon className="about-img git" icon={faGithub} />{" "}
           </a>
 
-          <a href="https://hasibulislam1670.medium.com/" target="_blank">
+          <a
+            href="https://hasibulislam1670.medium.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FontAwesomeIcon className="about-img medium " icon={faMediumM} />
           </a>
         </div>
@@ -45,7 +58,7 @@ function About() {
         <div className=" d-flex flex-column align-items-center justify-content-center">
           <div className="col-md-10 col-sm-10 col-12 col-lg-12 col-xl-12">
             <h6 className="mt-2 cover2 text-center container-fluid text-white">
-              I am Front-end Developer from Dhaka,Bangladesh. I count myself as
+              I am MERN Stack Developer from Dhaka,Bangladesh. I count myself as
               a hardworking person.
               <br />
               For fetching a challenging career in competitive world ,<br /> I
@@ -57,9 +70,10 @@ function About() {
 
             <div className="text-center">
               <a
-                href="https://drive.google.com/file/d/12xW5IOLqh1WVMBaArCck4M4HlXyopI-T/view?usp=sharing"
+                href="https://drive.google.com/file/d/1qHyPgF0G_dWSvyjJVa7L-6xvO1plnLm4/view?usp=sharing"
                 class="btn1 btn effect"
                 target="_blank"
+                rel="noreferrer"
               >
                 Download Resume
               </a>

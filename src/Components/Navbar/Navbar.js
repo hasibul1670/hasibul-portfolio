@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import { Link } from "react-scroll";
 import "./Navbar.css";
@@ -55,7 +56,7 @@ function Navbar() {
               <a
                 className="nav-link text-white btn-sm btn btn-danger text-white"
                 target="_blank"
-                href="https://drive.google.com/file/d/12xW5IOLqh1WVMBaArCck4M4HlXyopI-T/view?usp=sharing"
+                href="https://drive.google.com/file/d/1qHyPgF0G_dWSvyjJVa7L-6xvO1plnLm4/view?usp=sharing"
               >
                 Resume
               </a>
