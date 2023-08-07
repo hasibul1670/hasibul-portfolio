@@ -43,8 +43,8 @@ function Navbar() {
                 </a>
               </li>
               <li className="nav-right active mx-2  nav-link nav-link-ltr">
-                <a className="nav-link text-white " href="#blog">
-                  Blogs
+                <a className="nav-link text-white " href="#skill">
+                  Skills
                 </a>
               </li>
               <li className="nav-right active mx-2  nav-link nav-link-ltr">
@@ -54,7 +54,7 @@ function Navbar() {
               </li>
 
               <a
-                className="nav-link text-white btn-sm btn btn-danger text-white"
+                className="nav-link text-white  btn btn-danger text-white"
                 target="_blank"
                 href="https://drive.google.com/file/d/1qHyPgF0G_dWSvyjJVa7L-6xvO1plnLm4/view?usp=sharing"
               >

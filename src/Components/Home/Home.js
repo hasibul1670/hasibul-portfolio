@@ -1,29 +1,25 @@
-import React from 'react'
-import About from '../About/About'
-import Blog from '../Blog/Blog'
-import Hader from '../Hader/Hader'
-import Navbar from '../Navbar/Navbar'
-import Project from '../Project/Project'
-
+import React from "react";
+import About from "../About/About";
+import Hader from "../Hader/Hader";
+import Navbar from "../Navbar/Navbar";
+import Project from "../Project/Project";
+import Skill from "../Skill/Skill";
 
 function Home() {
-    return (
+  return (
+    <div>
+      <div className="">
+        <Navbar></Navbar>
+      </div>
 
-        <div>
-
-          <div className="">
-          <Navbar></Navbar>
-          </div>
-
-          <div className="color">
-          <Hader></Hader>
-          <Project></Project>
-          <Blog></Blog>
-          <About></About>
-          </div>
- 
-        </div>
-    )
+      <div className="color">
+        <Hader></Hader>
+        <Project></Project>
+        <Skill />
+        <About></About>
+      </div>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

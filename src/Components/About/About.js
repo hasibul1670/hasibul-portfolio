@@ -7,8 +7,13 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import cover from "../../images/Hasibul.png";
+import { Link } from "react-scroll";
 
 function About() {
+
+ const handleOpenModal=()=>{
+
+  }
   return (
     <div id="about" className="height2">
       <div class=" pt-4 pb-4 title text-white d-flex justify-content-center align-items-center">
@@ -77,13 +82,7 @@ function About() {
               >
                 Download Resume
               </a>
-              <a
-                href="mailto:hasibulislam1670@gmail.com"
-                target="_top"
-                class="btn2 btn effect"
-              >
-                Send Message
-              </a>
+         
             </div>
             <p></p>
             <div className="margin text-center text-white">

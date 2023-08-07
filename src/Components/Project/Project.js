@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react";
 import ejournal from "../../images/projectImg/ejournal.png";
-import sunlight from "../../images/projectImg/sunlight.png";
+import noteApp from "../../images/projectImg/noteapp.png";
+import pcbuild from '../../images/projectImg/pcbuild.png';
+import sunlight from '../../images/projectImg/sunlight.png';
 
 function Project() {
   return (
@@ -15,22 +17,19 @@ function Project() {
           <div class="card ">
             <img
               className=" p-2 img-fluid card-img-top"
-              src={sunlight}
+              src={noteApp}
               alt="..."
             />
             <div class="card-body">
-              <h5 class="card-title text-center text text-white">
-                SunLight Academy
-              </h5>
+              <h5 class="card-title text-center text text-white">Notes</h5>
               <p class="card-text text-center text-white ">
-                A fullstack E-learning website using React,Tailwind CSS,JWT
-                NodeJs,MongoDB,etc
+                A note organizer application to help you to manage your notes.
               </p>
 
               <div className="text-center">
                 <a
                   target="blank"
-                  href="https://summer-school-camp.netlify.app/"
+                  href="https://clientnotes.vercel.app/"
                   className="btn1 btn btn-sm mb-2"
                 >
                   Website
@@ -38,14 +37,14 @@ function Project() {
 
                 <a
                   target="_blank"
-                  href="https://github.com/hasibul1670/Client-Summer-Camp-School"
+                  href="https://github.com/hasibul1670/note-organizer-application"
                   className="btn1 btn btn-sm mb-2"
                 >
                   Github Front-End
                 </a>
                 <a
                   target="_blank"
-                  href="https://github.com/hasibul1670/summer-camp-school-server"
+                  href="https://github.com/hasibul1670/note-organizer-application"
                   className="btn1 btn btn-sm mb-2"
                 >
                   Github Back-End
@@ -105,7 +104,7 @@ function Project() {
           <div class="card ">
             <img
               className=" p-2 img-fluid card-img-top"
-              src={ejournal}
+              src={pcbuild}
               alt="..."
             />
             <div class="card-body">
@@ -147,12 +146,12 @@ function Project() {
           <div class="card ">
             <img
               className=" p-2 img-fluid card-img-top"
-              src={ejournal}
+              src={sunlight}
               alt="..."
             />
             <div class="card-body">
               <h5 class="card-title text-center text text-white">
-                Book catalog Application
+                SunLight Academy
               </h5>
               <p class="card-text text-center text-white ">
                 A fullstack website using React,tailwindCSS,JWT,Redux
@@ -162,7 +161,7 @@ function Project() {
               <div className="text-center">
                 <a
                   target="_blank"
-                  href="https://bookmania007.netlify.app/"
+                  href="https://summer-school-camp.netlify.app/"
                   className="btn1 btn btn-sm mb-2"
                 >
                   Website
@@ -170,14 +169,14 @@ function Project() {
 
                 <a
                   target="_blank"
-                  href="https://github.com/hasibul1670/Client_Book_Catalog_Application"
+                  href="https://github.com/hasibul1670/Client-Summer-Camp-School"
                   className="btn1 btn btn-sm mb-2"
                 >
                   Github Front-End
                 </a>
                 <a
                   target="_blank"
-                  href="https://github.com/hasibul1670/Server_Book_Catalog_Application"
+                  href="https://github.com/hasibul1670/summer-camp-school-server"
                   className="btn1 btn btn-sm mb-2"
                 >
                   Github Back-End
