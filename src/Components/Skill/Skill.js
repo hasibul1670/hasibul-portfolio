@@ -23,6 +23,8 @@ function Skill() {
 
     { category: "Database", name: "Non-SQL [ MongoDB ]", level: 90 },
     { category: "Database", name: "SQL [ PostgreSQL ]", level: 90 },
+    { category: "Database", name: "Database Normalization", level: 70 },
+    { category: "Database", name: "SQL Query Optimization", level: 75 },
 
     { category: "Others", name: "Problem Solving", level: 90 },
     { category: "Others", name: "Git Version Control ", level: 90 },
