@@ -8,7 +8,7 @@ function Skill() {
     { category: "Language", name: "TypeScript", level: 80 },
     { category: "Language", name: "C++", level: 80 },
     { category: "Front-end", name: "React JS", level: 90 },
-    { category: "Front-end", name: "NEXT Js", level: 80 },
+    { category: "Front-end", name: "Next Js", level: 80 },
     { category: "Front-end", name: "Tailwind CSS", level: 90 },
     { category: "Back-end", name: "NodeJS", level: 90 },
     { category: "Back-end", name: "ExpressJS", level: 90 },
@@ -23,8 +23,7 @@ function Skill() {
 
     { category: "Database", name: "Non-SQL [ MongoDB ]", level: 90 },
     { category: "Database", name: "SQL [ PostgreSQL ]", level: 90 },
-    { category: "Database", name: "Database Normalization", level: 70 },
-    { category: "Database", name: "SQL Query Optimization", level: 75 },
+    { category: "Database", name: "Prisma", level: 75 },
 
     { category: "Others", name: "Problem Solving", level: 90 },
     { category: "Others", name: "Git Version Control ", level: 90 },

@@ -18,9 +18,9 @@ function Hader() {
           </h3>
 
           <div className="col-md-10 col-sm-10 col-12 col-lg-12 col-xl-12">
-            <h6 className="mt-2 cover2 container-fluid text-white">
-              I am a Front-end Developer from Dhaka,Bangladesh. I count myself
-              as a hardworking person.
+            <h6 className="mt-2 cover2 text-center container-fluid text-white">
+              I am Full Stack Developer from Dhaka,Bangladesh. I count myself as
+              a hardworking person.
               <br />
               For fetching a challenging career in competitive world ,<br /> I
               have enthusiasm, honesty, hard work and passion which help me to

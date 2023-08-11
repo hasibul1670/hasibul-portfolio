@@ -217,3 +217,7 @@ body {
   width: 90%;
 }
 
+
+.custom-image {
+  height: 200px!important; /* Adjust the value as needed */
+}
