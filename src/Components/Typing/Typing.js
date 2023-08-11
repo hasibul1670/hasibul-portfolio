@@ -65,7 +65,7 @@ function Typing() {
   <span
      class="txt-rotate"
      data-period="2000"
-     data-rotate='[ "Web Developer.", "Programmer.", "Engineer." ]'></span>
+     data-rotate='[ "Web Developer.","Problem Solver.", "Programmer.", "Engineer." ]'></span>
 </h3>
 
         </div>

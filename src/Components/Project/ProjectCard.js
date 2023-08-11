@@ -10,7 +10,7 @@ function ProjectCard({
 }) {
   return (
     <div className="col-12 col-sm-6 col-md-4 col-lg-4 mb-4 d-flex align-items-center">
-      <div className="card w-80 h-80">
+      <div className="card w-80 custom-card-size">
         <img className="p-2 img-fluid card-img-top h-25  custom-image" src={image} alt="..." />
         <div className="card-body">
           <h5 className="card-title text-center  text-white">{title}</h5>

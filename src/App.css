@@ -221,3 +221,7 @@ body {
 .custom-image {
   height: 200px!important; /* Adjust the value as needed */
 }
+
+.custom-card-size {
+  height: 440px!important; 
+}
