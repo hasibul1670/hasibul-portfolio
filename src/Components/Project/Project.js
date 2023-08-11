@@ -18,7 +18,7 @@ const projects = [
   {
     title: "Notes organizer Website",
     description:
-      "Fullstack Note Organizer website with React, Redux, Tailwind, NodeJS, MongoDB, etc.",
+      "Fullstack Note Organizer website with React, Redux, Tailwind, NodeJS, MongoDB.",
     website: "https://clientnotes.vercel.app/",
     frontEndRepo: "https://github.com/hasibul1670/note-organizer-application",
     backEndRepo: "https://github.com/hasibul1670/note-organizer-application",

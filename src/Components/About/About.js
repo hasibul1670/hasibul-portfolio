@@ -57,7 +57,6 @@ function About() {
 
         <div className=" d-flex flex-column align-items-center justify-content-center">
           <div className="col-md-10 col-sm-10 col-12 col-lg-12 col-xl-12">
-
             <h6 className="mt-2 cover2 text-center container-fluid text-white">
               I am MERN Stack Developer from Dhaka,Bangladesh. I count myself as
               a hardworking person.
@@ -67,12 +66,12 @@ function About() {
               to reach my goal.And I will be more effective day by day in this
               sector. Let's to Go
             </h6>
-            
+
             <p></p>
 
             <div className="text-center">
               <a
-                href="https://drive.google.com/file/d/1qHyPgF0G_dWSvyjJVa7L-6xvO1plnLm4/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Q2r0yGTNawGWQNuZlZ9KqWFXWerIr1CC/view?usp=sharing"
                 class="btn1 btn effect"
                 target="_blank"
                 rel="noreferrer"

@@ -56,7 +56,7 @@ function Navbar() {
               <a
                 className="nav-link text-white  btn btn-danger text-white"
                 target="_blank"
-                href="https://drive.google.com/file/d/1qHyPgF0G_dWSvyjJVa7L-6xvO1plnLm4/view?usp=sharing"
+                href="https://drive.google.com/file/d/1Q2r0yGTNawGWQNuZlZ9KqWFXWerIr1CC/view?usp=sharing"
               >
                 Resume
               </a>
