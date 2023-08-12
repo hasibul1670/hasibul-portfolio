@@ -71,7 +71,7 @@ function About() {
 
             <div className="text-center">
               <a
-                href="https://drive.google.com/file/d/1Q2r0yGTNawGWQNuZlZ9KqWFXWerIr1CC/view?usp=sharing"
+                href="https://drive.google.com/file/d/1kBZwNrh84gHjClnsTiIckCoQnADGWTyA/view?usp=sharing"
                 class="btn1 btn effect"
                 target="_blank"
                 rel="noreferrer"
