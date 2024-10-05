@@ -11,7 +11,7 @@ const projects = [
     title: "E-Medicine Website ",
     description:
       "Fullstack E-Commerce site with React, Redux, Tailwind, NodeJS, MongoDB, etc",
-    website: "https://e-medicine007.vercel.app/",
+    website: "https://ecare-admin007.vercel.app/",
     frontEndRepo: "https://github.com/hasibul1670/E-Medicine-Shop",
     image: emedicine,
   },
@@ -19,9 +19,9 @@ const projects = [
     title: "Notes organizer Website",
     description:
       "Fullstack Note Organizer website with React, Redux, Tailwind, NodeJS, MongoDB.",
-    website: "https://clientnotes.vercel.app/",
-    frontEndRepo: "https://github.com/hasibul1670/note-organizer-application",
-    backEndRepo: "https://github.com/hasibul1670/note-organizer-application",
+    website: "https://note007.vercel.app/login",
+    frontEndRepo: "https://github.com/hasibul1670/Task-Management-Application",
+    backEndRepo: "https://github.com/hasibul1670/Task-Management-Application",
     image: noteApp,
   },
 

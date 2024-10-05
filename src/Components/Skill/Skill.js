@@ -4,13 +4,14 @@ function Skill() {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const skills = [
+    { category: "Language", name: "C++", level: 80 },
     { category: "Language", name: "JavaScript", level: 90 },
     { category: "Language", name: "TypeScript", level: 80 },
-    { category: "Language", name: "C++", level: 80 },
+    { category: "Front-end", name: "Angular", level: 80 },
     { category: "Front-end", name: "React JS", level: 90 },
     { category: "Front-end", name: "Next Js", level: 80 },
-    { category: "Front-end", name: "Tailwind CSS", level: 90 },
     { category: "Back-end", name: "NodeJS", level: 90 },
+    { category: "Back-end", name: "NestJs", level: 90 },
     { category: "Back-end", name: "ExpressJS", level: 90 },
     { category: "Back-end", name: "Json Web Token [ JWT ] ", level: 90 },
     { category: "Back-end", name: "RESTful API Design", level: 90 },
