@@ -55,17 +55,24 @@ const projects = [
 
 function Project() {
   return (
-    <div id="project" className="container align-items-center ">
-      <div className="pt-4 pb-4 title d-flex justify-content-center align-items-center">
-        <h2>My Projects</h2>
+    <section id="project" className="scroll-mt-24 border-b soft-divider pb-14 lg:pb-20">
+      <div className="mb-8 space-y-3">
+        <p className="section-label">Projects</p>
+        <h2 className="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl">
+          Selected work
+        </h2>
+        <p className="max-w-3xl text-base leading-7 text-zinc-600 sm:text-lg">
+          A few projects that reflect my current direction in product
+          engineering, frontend architecture, and full stack development.
+        </p>
       </div>
 
-      <div className="card-deck">
+      <div className="grid gap-6 md:grid-cols-2">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
