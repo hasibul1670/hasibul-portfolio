@@ -337,7 +337,7 @@ function Home() {
               data-dot-frame
               data-dot-shape="brackets"
               data-section
-              className="stack-highlight section-open scroll-mt-24 py-6 px-5 sm:px-7 lg:px-8"
+              className="stack-highlight section-open scroll-mt-24 py-6"
             >
               <div data-reveal className="reveal section-head">
                 <p className="eyebrow">Stack</p>
