@@ -27,6 +27,9 @@
     "preview": "vite preview",
     "test": "vitest run"
   },
+  "engines": {
+    "node": "20.19.x || >=22.12.0"
+  },
   "description": "Hasibul Islam portfolio app migrated from Create React App to Vite.",
   "author": "",
   "license": "ISC"
