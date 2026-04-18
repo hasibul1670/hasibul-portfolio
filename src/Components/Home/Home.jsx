@@ -1,78 +1,74 @@
 import React, { useEffect, useMemo, useState } from "react";
 import {
   FaArrowRight,
-  FaChevronDown,
-  FaFacebookF,
   FaGithub,
   FaLinkedinIn,
-  FaMediumM,
-} from "react-icons/fa";
+} from "react-icons/fa6";
+import { FaMediumM } from "react-icons/fa";
+import DotFieldBackground from "./DotFieldBackground";
 
 const navItems = [
-  { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
-  { id: "skills", label: "Skills" },
+  { id: "stack", label: "Stack" },
   { id: "contact", label: "Contact" },
 ];
 
 const experiences = [
   {
-    role: "Software Engineer",
+    period: "2025 — Present",
     company: "illuminance Solutions",
-    type: "Full-time",
-    period: "Mar 2025 - Present",
-    duration: "1 yr 2 mos",
+    role: "Software Engineer",
+    meta: "Full-time",
     location: "Perth, Western Australia, Australia · Remote",
-    title: "Dynamics 365 CRM & Backend Engineer",
-    summary:
-      "Backend engineer focused on Dynamics 365 CRM, .NET, and Azure-based systems.",
-    highlights: [
-      "Customized D365 CRM with plugins, workflows, and custom actions",
-      "Built Azure Functions and Service Bus integrations for asynchronous processing",
-      "Designed REST APIs and third-party integrations across cloud systems",
-    ],
-    skills: ".NET Framework, MS Technologies, Azure, Dynamics 365 CRM",
+    focus:
+      "Dynamics 365 CRM, .NET, Azure Functions, Service Bus integrations, and API-driven backend delivery.",
   },
   {
-    role: "Software Engineer",
+    period: "2023 — Present",
     company: "ImpleVista",
-    type: "Full-time",
-    period: "Sep 2023 - Present",
-    duration: "2 yrs 8 mos",
-    location: "Dhaka, Dhaka, Bangladesh · Remote",
-    title: "Backend-focused Engineer",
-    summary:
-      "Backend-focused engineer working on scalable systems, integrations, and service architecture.",
-    highlights: [
-      "Built backend systems using C#, .NET, and TypeScript",
-      "Applied clean architecture patterns across core services",
-      "Worked on modular and microservices-based backend platforms",
-    ],
-    skills: "C#, .NET, TypeScript, Microservices, Clean Architecture",
+    role: "Software Engineer",
+    meta: "Full-time",
+    location: "Dhaka, Bangladesh · Remote",
+    focus:
+      "Scalable backend systems, clean architecture, TypeScript services, microservice patterns, and production APIs.",
+  },
+  {
+    period: "2022 — 2023",
+    company: "SILKTECH LTD",
+    role: "Junior Software Engineer",
+    meta: "Full-time",
+    location: "Narayanganj District, Dhaka, Bangladesh · On-site",
+    focus:
+      "Built inventory platforms with Node.js, Express.js, MongoDB, Firebase, and practical full stack delivery.",
   },
 ];
 
-const skillGroups = [
-  {
-    title: "Languages",
-    items: ["JavaScript", "TypeScript", "C++"],
-  },
-  {
-    title: "Frontend",
-    items: ["React.js", "Next.js", "Tailwind CSS", "HTML", "CSS"],
-  },
-  {
-    title: "Backend",
-    items: ["Node.js", "Express.js", "NestJS", "REST API Design", "JWT"],
-  },
-  {
-    title: "Data & Tools",
-    items: ["MongoDB", "PostgreSQL", "Prisma", "Git", "Jira"],
-  },
+const stack = [
+  "React",
+  "Next.js",
+  "Angular",
+  "TypeScript",
+  "Node.js",
+  "NestJS",
+  "C# / .NET",
+  "PostgreSQL",
+  "MongoDB",
+  "Azure",
+  "REST APIs",
+  "Microservices",
+  "System Design",
+  "Distributed Systems",
+  "Message Queues",
+  "Azure Service Bus",
+  "Redis Caching",
+  "Docker",
+  "CI/CD Pipelines",
+  "Event-Driven Architecture",
+  "API Security",
 ];
 
 function Home() {
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState("experience");
 
   const socialLinks = useMemo(
     () => [
@@ -90,11 +86,6 @@ function Home() {
         label: "Medium",
         href: "https://hasibulislam1670.medium.com/",
         icon: FaMediumM,
-      },
-      {
-        label: "Facebook",
-        href: "https://www.facebook.com/hasibulcse",
-        icon: FaFacebookF,
       },
     ],
     []
@@ -119,24 +110,24 @@ function Home() {
         });
       },
       {
-        threshold: 0.12,
-        rootMargin: "0px 0px -60px 0px",
+        threshold: 0.14,
+        rootMargin: "0px 0px -40px 0px",
       }
     );
 
     const sectionObserver = new IntersectionObserver(
       (entries) => {
-        const visibleEntries = entries
+        const visibleEntry = entries
           .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-        if (visibleEntries.length > 0) {
-          setActiveSection(visibleEntries[0].target.id);
+        if (visibleEntry) {
+          setActiveSection(visibleEntry.target.id);
         }
       },
       {
-        threshold: [0.2, 0.35, 0.5, 0.75],
-        rootMargin: "-20% 0px -45% 0px",
+        threshold: [0.2, 0.4, 0.65],
+        rootMargin: "-10% 0px -45% 0px",
       }
     );
 
@@ -149,286 +140,252 @@ function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    const root = document.documentElement;
+
+    const updatePointer = (event) => {
+      const x = (event.clientX / window.innerWidth) * 100;
+      const y = (event.clientY / window.innerHeight) * 100;
+
+      root.style.setProperty("--pointer-x", `${x}%`);
+      root.style.setProperty("--pointer-y", `${y}%`);
+    };
+
+    const updateScroll = () => {
+      const scrollTop = window.scrollY || 0;
+      const scrollRange =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const progress = scrollRange > 0 ? scrollTop / scrollRange : 0;
+
+      root.style.setProperty("--scroll-progress", `${progress}`);
+      root.style.setProperty(
+        "--scroll-shift",
+        `${Math.min(scrollTop * 0.08, 48)}px`
+      );
+    };
+
+    updateScroll();
+    window.addEventListener("pointermove", updatePointer);
+    window.addEventListener("scroll", updateScroll, { passive: true });
+    window.addEventListener("resize", updateScroll);
+
+    return () => {
+      window.removeEventListener("pointermove", updatePointer);
+      window.removeEventListener("scroll", updateScroll);
+      window.removeEventListener("resize", updateScroll);
+    };
+  }, []);
+
   return (
-    <div className="bg-[var(--bg)] text-[var(--text)]">
-      <div className="mx-auto max-w-[1440px] px-6 py-8 sm:px-10 lg:px-14">
-        <div className="grid gap-14 lg:grid-cols-[30%_70%] lg:gap-16">
-          <aside className="lg:sticky lg:top-8 lg:h-[calc(100vh-4rem)] lg:self-start">
-            <div className="flex h-full flex-col justify-between gap-10">
+    <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
+      <div className="site-effects" aria-hidden="true">
+        <DotFieldBackground />
+        <div className="cursor-aura" />
+        <div className="scroll-wash" />
+        <div className="scroll-progress-bar" />
+      </div>
+      <div className="page-shell mx-auto max-w-[1450px] px-5 py-5 sm:px-8 lg:px-10 lg:py-8">
+        <div className="portfolio-layout grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)]">
+          <aside className="portfolio-sidebar lg:sticky lg:top-8 lg:self-start">
+            <div
+              data-dot-frame
+              className="sidebar-shell flex h-full flex-col justify-between gap-10 p-6 sm:p-7"
+            >
               <div className="space-y-10">
-                <div
-                  data-reveal
-                  className="reveal space-y-3"
-                >
+                <div data-reveal className="reveal space-y-5">
                   <div className="space-y-3">
-                    <h1 className="max-w-sm text-[3.2rem] font-bold leading-[0.95] tracking-[-0.08em] text-[var(--text)] sm:text-[4rem]">
-                      Hasibul Islam
+                    <p className="eyebrow">Dhaka / Backend Focused Full Stack Engineer</p>
+                    <h1 className="max-w-[10ch] font-display text-[3.45rem] uppercase leading-[0.88] tracking-[-0.08em] sm:text-[4.4rem]">
+                      Hasibul
+                      <br />
+                      Islam
                     </h1>
-                    <p className="text-[0.9rem] font-medium uppercase tracking-[0.08em] text-[#666]">
-                      Full Stack Developer
-                    </p>
-                    <p className="max-w-sm text-[0.96rem] leading-[1.65] text-[#222]/80">
-                      Full stack developer focused on clear interfaces and
-                      maintainable systems.
-                    </p>
                   </div>
+
+                  <p className="max-w-xs text-sm leading-7 text-[var(--muted)] sm:text-[0.96rem]">
+                    Backend-focused engineer building reliable APIs, integrations, and service architecture with calm product thinking.
+                  </p>
                 </div>
 
-                <nav
-                  data-reveal
-                  className="reveal flex flex-wrap gap-x-6 gap-y-4 lg:flex-col lg:gap-3"
-                >
+                <nav data-reveal className="reveal space-y-2">
                   {navItems.map((item) => {
                     const isActive = activeSection === item.id;
+
                     return (
                       <a
                         key={item.id}
                         href={`#${item.id}`}
-                        className={`group inline-flex items-center gap-3 text-[0.85rem] font-medium uppercase tracking-[0.08em] transition ${
-                          isActive ? "text-[var(--text)]" : "text-[#666]"
-                        }`}
+                        className={`nav-link ${isActive ? "is-active" : ""}`}
                       >
-                        <span
-                          className={`h-2.5 w-2.5 rounded-full transition ${
-                            isActive
-                              ? "bg-[var(--accent)]"
-                              : "bg-black/10 group-hover:bg-black/25"
-                          }`}
-                        />
                         <span>{item.label}</span>
+                        <span className="nav-index">
+                          {String(navItems.indexOf(item) + 1).padStart(2, "0")}
+                        </span>
                       </a>
                     );
                   })}
                 </nav>
               </div>
 
-              <div
-                data-reveal
-                className="reveal flex items-center gap-3"
-              >
-                {socialLinks.map((social) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={social.label}
-                      href={social.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={social.label}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white text-[0.85rem] text-[#666] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-                    >
-                      <Icon />
-                    </a>
-                  );
-                })}
+              <div data-reveal className="reveal space-y-5">
+                <div className="flex flex-wrap gap-3">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={social.label}
+                        className="social-chip"
+                      >
+                        <Icon />
+                      </a>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </aside>
 
-          <main className="w-full max-w-[800px] justify-self-end">
+          <main className="portfolio-main space-y-14 lg:space-y-20">
             <section
-              id="about"
-              data-section
-              className="scroll-mt-24 py-20 sm:py-28"
+              data-dot-frame
+              data-reveal
+              className="reveal hero-open overflow-hidden pt-4 sm:pt-8 lg:pt-12"
             >
-              <div
-                data-reveal
-                className="reveal space-y-7"
-              >
-                <h2 className="text-[1rem] font-semibold uppercase tracking-[0.12em] text-[#666]">
-                  About
-                </h2>
+              <div className="grid gap-10 xl:grid-cols-[1.12fr_0.88fr] xl:items-center">
+                <div className="space-y-6 hero-copy">
+                  <div className="space-y-4">
+                    <h2 className="max-w-[12ch] font-display text-[2.7rem] uppercase leading-[0.9] tracking-[-0.08em] sm:text-[4rem] lg:text-[5rem]">
+                      Backend-first,
+                      <br />
+                      built with depth.
+                    </h2>
+                    <p className="max-w-xl text-base leading-8 text-[var(--muted)] sm:text-lg">
+                      I design backend systems that stay readable under pressure: APIs, integrations, queues, cloud workflows, and production-grade service architecture.
+                    </p>
+                  </div>
+                </div>
 
-                <div className="max-w-2xl space-y-5 text-[0.96rem] leading-[1.75] text-[#222]/82">
-                  <p>
-                    I build frontend-focused full stack products with an emphasis
-                    on clarity, readability, and dependable implementation.
-                  </p>
-                  <p>
-                    I work mainly with React, Next.js, TypeScript, Node.js, and
-                    API-driven systems. Based in Dhaka, Bangladesh. Open to
-                    frontend and full stack opportunities.
-                  </p>
+                <div className="hero-visual">
+                  <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
+                    <div className="hero-stat">
+                      <span className="hero-stat-value">3+</span>
+                      <span className="hero-stat-label">Years building</span>
+                    </div>
+                    <div className="hero-stat">
+                      <span className="hero-stat-value">18+</span>
+                      <span className="hero-stat-label">Core tools</span>
+                    </div>
+                    <div className="hero-stat">
+                      <span className="hero-stat-value">Remote</span>
+                      <span className="hero-stat-label">Available</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
 
             <section
               id="experience"
+              data-dot-frame
               data-section
-              className="scroll-mt-24 border-t border-black/8 py-20 sm:py-28"
+              className="section-open scroll-mt-24 py-2"
             >
-              <div
-                data-reveal
-                className="reveal mb-10 space-y-3"
-              >
-                <h2 className="text-[1rem] font-semibold uppercase tracking-[0.12em] text-[#666]">
-                  Experience
-                </h2>
-                <p className="max-w-xl text-[0.95rem] leading-[1.7] text-[#222]/76">
-                  Selected roles across backend engineering, CRM systems, and
-                  scalable service architecture.
-                </p>
+              <div data-reveal className="reveal section-head">
+                <p className="eyebrow">Experience</p>
+                <h2 className="section-title">Backend roles, clearly shown.</h2>
               </div>
 
-              <div className="space-y-12">
-                {experiences.map((experience, index) => (
+              <div className="mt-8 space-y-4">
+                {experiences.map((item, index) => (
                   <article
-                    key={`${experience.company}-${experience.role}`}
+                    key={`${item.company}-${item.period}`}
                     data-reveal
-                    className="reveal border-l border-black/10 pl-6 sm:pl-8"
+                    className="reveal experience-row"
                     style={{ transitionDelay: `${index * 90}ms` }}
                   >
-                    <div className="space-y-5">
-                      <div className="space-y-2">
-                        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                          <h3 className="text-[1.4rem] font-semibold tracking-[-0.05em] text-[var(--text)]">
-                            {experience.role}
-                          </h3>
-                          <p className="text-[0.82rem] font-medium uppercase tracking-[0.08em] text-[#666]">
-                            {experience.period}
-                          </p>
-                        </div>
-                        <p className="text-[0.98rem] leading-[1.65] text-[#222]/86">
-                          {experience.company} · {experience.type}
-                        </p>
-                        <p className="text-[0.9rem] leading-[1.7] text-[#666]">
-                          {experience.location}
-                        </p>
-                      </div>
-
-                      <div className="space-y-2">
-                        <p className="text-[0.82rem] font-medium uppercase tracking-[0.08em] text-[#666]">
-                          {experience.title}
-                        </p>
-                        <p className="max-w-2xl text-[0.94rem] leading-[1.7] text-[#222]/76">
-                          {experience.summary}
-                        </p>
-                      </div>
-
-                      <ul className="space-y-1.5 text-[0.92rem] leading-[1.65] text-[#222]/74">
-                        {experience.highlights.map((highlight) => (
-                          <li key={highlight} className="flex gap-3">
-                            <span className="mt-[0.52rem] h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="inline-flex items-center gap-2 text-[0.84rem] font-medium text-[var(--accent)]">
-                        <span>{experience.skills}</span>
-                        <FaArrowRight className="text-[0.72rem]" />
-                      </div>
+                    <p className="experience-period">{item.period}</p>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-semibold text-[var(--text)]">
+                        {item.role}
+                      </h3>
+                      <p className="text-sm uppercase tracking-[0.18em] text-[var(--muted)]">
+                        {item.company} · {item.meta}
+                      </p>
+                      <p className="text-sm leading-7 text-[var(--muted)]">
+                        {item.location}
+                      </p>
                     </div>
+                    <p className="text-sm leading-7 text-[var(--muted)] sm:text-[0.95rem]">
+                      {item.focus}
+                    </p>
                   </article>
                 ))}
               </div>
             </section>
 
             <section
-              id="skills"
+              id="stack"
+              data-dot-frame
+              data-dot-shape="brackets"
               data-section
-              className="scroll-mt-24 border-t border-black/8 py-20 sm:py-28"
+              className="stack-highlight section-open scroll-mt-24 py-6 px-5 sm:px-7 lg:px-8"
             >
-              <div
-                data-reveal
-                className="reveal space-y-8"
-              >
-                <div className="space-y-4">
-                  <h2 className="text-[1rem] font-semibold uppercase tracking-[0.12em] text-[#666]">
-                    Skills
-                  </h2>
-                  <p className="max-w-xl text-[0.95rem] leading-[1.7] text-[#222]/76">
-                    Core tools grouped by discipline.
-                  </p>
-                </div>
+              <div data-reveal className="reveal section-head">
+                <p className="eyebrow">Stack</p>
+                <h2 className="section-title">Backend tools I use most.</h2>
+              </div>
 
-                <div className="grid gap-x-12 gap-y-8 md:grid-cols-2">
-                  {skillGroups.map((group, index) => (
-                    <div
-                      key={group.title}
-                      data-reveal
-                      className="reveal space-y-4"
-                      style={{ transitionDelay: `${index * 70}ms` }}
-                    >
-                      <h3 className="text-[1rem] font-bold text-[var(--text)]">
-                        {group.title}
-                      </h3>
-                      <ul className="space-y-1.5 text-[0.92rem] leading-[1.65] text-[#222]/74">
-                        {group.items.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
+              <div data-reveal className="reveal mt-8 flex flex-wrap gap-3">
+                {stack.map((item, index) => (
+                  <span
+                    key={item}
+                    className="stack-chip"
+                    style={{ transitionDelay: `${index * 45}ms` }}
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
             </section>
 
             <section
               id="contact"
+              data-dot-frame
               data-section
-              className="scroll-mt-24 border-t border-black/8 py-20 sm:py-28"
+              className="contact-open scroll-mt-24 py-2"
             >
-              <div
-                data-reveal
-                className="reveal space-y-6"
-              >
-                <h2 className="text-[1rem] font-semibold uppercase tracking-[0.12em] text-[#666]">
-                  Contact
-                </h2>
-
-                <div className="space-y-4 text-[0.95rem] leading-[1.7] text-[#222]/78">
-                  <p>
-                    Available for selected frontend and full stack opportunities.
-                  </p>
-
-                  <div className="flex flex-wrap gap-6 text-[0.95rem] font-medium">
-                    <a
-                      href="mailto:hasibulcse@gmail.com"
-                      className="text-[var(--accent)] transition hover:text-[var(--accent-strong)]"
-                    >
-                      hasibulcse@gmail.com
-                    </a>
-                    <a
-                      href="https://drive.google.com/file/d/1kBZwNrh84gHjClnsTiIckCoQnADGWTyA/view?usp=sharing"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-[#222]/65 transition hover:text-[var(--text)]"
-                    >
-                      Resume
-                    </a>
-                  </div>
+              <div data-reveal className="reveal grid gap-8 xl:grid-cols-[1fr_auto] xl:items-end">
+                <div className="space-y-4">
+                  <p className="eyebrow">Contact</p>
+                  <h2 className="section-title max-w-[12ch]">
+                    Open to backend product work.
+                  </h2>
+                  <a
+                    href="mailto:hasibul.dcc@gmail.com"
+                    className="inline-flex items-center gap-2 text-base font-medium text-[var(--text)] transition hover:text-[var(--accent)] sm:text-lg"
+                  >
+                    hasibul.dcc@gmail.com
+                    <FaArrowRight className="text-xs" />
+                  </a>
                 </div>
+
+                <p className="max-w-sm text-sm leading-7 text-[var(--muted)]">
+                  Backend engineering, integrations, service architecture, and API-heavy product systems.
+                </p>
               </div>
             </section>
-
-            <footer className="border-t border-black/8 py-10 text-[0.82rem] text-[#666]">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <p>Hasibul Islam © 2026</p>
-                <div className="flex items-center gap-3">
-                  {["GH", "LI", "MD", "FB"].map((label) => (
-                    <span
-                      key={label}
-                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-black/10 bg-white text-[0.66rem] font-medium tracking-[0.16em] text-[#666]"
-                    >
-                      {label}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </footer>
           </main>
         </div>
       </div>
-
-      <a
-        href="#experience"
-        aria-label="Scroll to experience"
-        className="fixed bottom-8 right-6 inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-white text-[#666] shadow-[0_8px_30px_rgba(0,0,0,0.04)] transition hover:border-[var(--accent)] hover:text-[var(--accent)] lg:right-10"
-      >
-        <FaChevronDown />
-      </a>
     </div>
   );
 }
