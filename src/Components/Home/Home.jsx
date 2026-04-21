@@ -5,7 +5,6 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa6";
 import { FaMediumM } from "react-icons/fa";
-import DotFieldBackground from "./DotFieldBackground";
 
 const navItems = [
   { id: "experience", label: "Experience" },
@@ -15,16 +14,8 @@ const navItems = [
 
 const experiences = [
   {
-    period: "2025 — Present",
-    company: "illuminance Solutions",
-    role: "Software Engineer",
-    meta: "Full-time",
-    location: "Perth, Western Australia, Australia · Remote",
-    focus:
-      "Dynamics 365 CRM, .NET, Azure Functions, Service Bus integrations, and API-driven backend delivery.",
-  },
-  {
     period: "2023 — Present",
+    duration: "2 yrs 8 mos",
     company: "ImpleVista",
     role: "Software Engineer",
     meta: "Full-time",
@@ -34,6 +25,7 @@ const experiences = [
   },
   {
     period: "2022 — 2023",
+    duration: "1 yr 4 mos",
     company: "SILKTECH LTD",
     role: "Junior Software Engineer",
     meta: "Full-time",
@@ -69,6 +61,11 @@ const stack = [
 
 function Home() {
   const [activeSection, setActiveSection] = useState("experience");
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [animatedStats, setAnimatedStats] = useState({
+    years: 0,
+    tools: 0,
+  });
 
   const socialLinks = useMemo(
     () => [
@@ -145,49 +142,67 @@ function Home() {
       return undefined;
     }
 
-    const root = document.documentElement;
-
-    const updatePointer = (event) => {
-      const x = (event.clientX / window.innerWidth) * 100;
-      const y = (event.clientY / window.innerHeight) * 100;
-
-      root.style.setProperty("--pointer-x", `${x}%`);
-      root.style.setProperty("--pointer-y", `${y}%`);
-    };
-
-    const updateScroll = () => {
+    const updateScrollProgress = () => {
       const scrollTop = window.scrollY || 0;
       const scrollRange =
         document.documentElement.scrollHeight - window.innerHeight;
       const progress = scrollRange > 0 ? scrollTop / scrollRange : 0;
 
-      root.style.setProperty("--scroll-progress", `${progress}`);
-      root.style.setProperty(
-        "--scroll-shift",
-        `${Math.min(scrollTop * 0.08, 48)}px`
-      );
+      setScrollProgress(progress);
     };
 
-    updateScroll();
-    window.addEventListener("pointermove", updatePointer);
-    window.addEventListener("scroll", updateScroll, { passive: true });
-    window.addEventListener("resize", updateScroll);
+    updateScrollProgress();
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", updateScrollProgress);
 
     return () => {
-      window.removeEventListener("pointermove", updatePointer);
-      window.removeEventListener("scroll", updateScroll);
-      window.removeEventListener("resize", updateScroll);
+      window.removeEventListener("scroll", updateScrollProgress);
+      window.removeEventListener("resize", updateScrollProgress);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return undefined;
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setAnimatedStats({ years: 4, tools: 18 });
+      return undefined;
+    }
+
+    let frameId = 0;
+    const start = performance.now();
+    const duration = 1300;
+
+    const animateStats = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      setAnimatedStats({
+        years: Math.round(4 * eased),
+        tools: Math.round(18 * eased),
+      });
+
+      if (progress < 1) {
+        frameId = window.requestAnimationFrame(animateStats);
+      }
+    };
+
+    frameId = window.requestAnimationFrame(animateStats);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
     };
   }, []);
 
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text)]">
-      <div className="site-effects" aria-hidden="true">
-        <DotFieldBackground />
-        <div className="cursor-aura" />
-        <div className="scroll-wash" />
-        <div className="scroll-progress-bar" />
-      </div>
+      <div
+        className="scroll-progress-bar"
+        aria-hidden="true"
+        style={{ transform: `scaleX(${scrollProgress})` }}
+      />
       <div className="page-shell mx-auto max-w-[1450px] px-5 py-5 sm:px-8 lg:px-10 lg:py-8">
         <div className="portfolio-layout grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)] xl:grid-cols-[320px_minmax(0,1fr)]">
           <aside className="portfolio-sidebar lg:sticky lg:top-8 lg:self-start">
@@ -233,7 +248,7 @@ function Home() {
 
               <div data-reveal className="reveal space-y-5">
                 <div className="flex flex-wrap gap-3">
-                  {socialLinks.map((social) => {
+                  {socialLinks.map((social, index) => {
                     const Icon = social.icon;
 
                     return (
@@ -244,6 +259,7 @@ function Home() {
                         rel="noreferrer"
                         aria-label={social.label}
                         className="social-chip"
+                        style={{ transitionDelay: `${index * 60}ms` }}
                       >
                         <Icon />
                       </a>
@@ -263,7 +279,7 @@ function Home() {
               <div className="grid gap-10 xl:grid-cols-[1.12fr_0.88fr] xl:items-center">
                 <div className="space-y-6 hero-copy">
                   <div className="space-y-4">
-                    <h2 className="max-w-[12ch] font-display text-[2.7rem] uppercase leading-[0.9] tracking-[-0.08em] sm:text-[4rem] lg:text-[5rem]">
+                    <h2 className="hero-title max-w-[12ch] font-display text-[2.7rem] uppercase leading-[0.9] tracking-[-0.08em] sm:text-[4rem] lg:text-[5rem]">
                       Backend-first,
                       <br />
                       built with depth.
@@ -276,15 +292,27 @@ function Home() {
 
                 <div className="hero-visual">
                   <div className="grid gap-3 sm:grid-cols-3 xl:grid-cols-1">
-                    <div className="hero-stat">
-                      <span className="hero-stat-value">3+</span>
+                    <div
+                      data-reveal
+                      className="reveal hero-stat"
+                      style={{ transitionDelay: "120ms" }}
+                    >
+                      <span className="hero-stat-value">{animatedStats.years}+</span>
                       <span className="hero-stat-label">Years building</span>
                     </div>
-                    <div className="hero-stat">
-                      <span className="hero-stat-value">18+</span>
+                    <div
+                      data-reveal
+                      className="reveal hero-stat"
+                      style={{ transitionDelay: "200ms" }}
+                    >
+                      <span className="hero-stat-value">{animatedStats.tools}+</span>
                       <span className="hero-stat-label">Core tools</span>
                     </div>
-                    <div className="hero-stat">
+                    <div
+                      data-reveal
+                      className="reveal hero-stat"
+                      style={{ transitionDelay: "280ms" }}
+                    >
                       <span className="hero-stat-value">Remote</span>
                       <span className="hero-stat-label">Available</span>
                     </div>
@@ -312,7 +340,10 @@ function Home() {
                     className="reveal experience-row"
                     style={{ transitionDelay: `${index * 90}ms` }}
                   >
-                    <p className="experience-period">{item.period}</p>
+                    <p className="experience-period">
+                      <span>{item.period}</span>
+                      {item.duration ? <span>{item.duration}</span> : null}
+                    </p>
                     <div className="space-y-2">
                       <h3 className="text-xl font-semibold text-[var(--text)]">
                         {item.role}
